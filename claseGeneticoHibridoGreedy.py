@@ -4,7 +4,7 @@ from random import randint, random
 from claseCurso import *
 from claseDia import *
 
-class claseGenetico():
+class claseGeneticoHibridoGreedy():
     def __init__(self,_cursos,_aulas,_n,_listaCursos:list,_cantLaboratorios):
         self.probaMutacion=0.80
         self.probaCruce=0.5
@@ -30,39 +30,6 @@ class claseGenetico():
         self.poblacion=[self.generarIndividuo() for i in range(self.n)]
     #[ [[1, 0, 1, 0, 1, 1, 1, 1, 0, 0], [1, 0, 1, 0, 0, 0, 0, 0, 1, 1], [1, 0, 0, 0, 1, 1, 1, 0, 1, 1]],
     #  [[0, 1, 1, 1, 0, 1, 0, 0, 0, 0], [1, 1, 0, 0, 0, 0, 0, 0, 0, 1], [1, 1, 1, 0, 1, 1, 1, 1, 0, 0]] ]
-
-    #Esta funcion nos sirve para seleecionar a aquellos que son
-    #mas aptos.
-    def NuevaRuleta(self,pais): #SELECCION DE RULETA
-        def sortear(fitness_total, indice_a_ignorar=-1):
-            ruleta, acumulado, valor_sorteado = [], 0, random()
-
-            if indice_a_ignorar!=-1:
-                fitness_total -= valores[0][indice_a_ignorar]
-
-            for indice, i in enumerate(valores[0]):
-                if indice_a_ignorar==indice: 
-                    continue
-                acumulado += i
-                ruleta.append(acumulado/fitness_total)
-                if ruleta[-1] >= valor_sorteado:
-                    return indice
-
-        valores = list(zip(*pais)) 
-        
-        fitness_total = sum(valores[0])
-
-        #Recuperamos el indice de la molecula mas apto
-        indice_padre = sortear(fitness_total) 
-
-        #Recuperamos el indice de la segunda molecula mas apto
-        indice_madre = sortear(fitness_total, indice_padre)
-
-        #Recuperamos el valor con el indice
-        padre = valores[1][indice_padre]
-        madre = valores[1][indice_madre]
-        
-        return padre, madre
     
     #[ AULAS , AULAS , AULAS , AULAS , AULAS ]
     #[ [0,1,0,1,0,1] ] , [0,1,0,1,0,1] , [0,1,0,1,0,1] ]
@@ -148,6 +115,45 @@ class claseGenetico():
         #[[1, 0, 1, 0, 1, 1, 1, 1, 0, 0], [1, 0, 1, 0, 0, 0, 0, 0, 1, 1], [1, 0, 0, 0, 1, 1, 1, 0, 1, 1]]
         #return 1/(1+randint(1,5)+randint(1,5))
         return 1/(1+self.ECT(cromosoma)+2*self.ECDAT(cromosoma))
+
+
+    # USAR EL ALGORITMO GREEDY PARA SELEECIONAR LA SOLUCION OPTIMA
+    def AlgoritmoGreddy(self,pais): #SELECCION DE RULETA
+        valores = list(zip(*pais))
+        #[(0.09090909090909091, 0.2), ([[1, 1, 1, 0, 1], [1, 0, 1, 1, 0], [0, 0, 1, 0, 1]], [[1, 1, 0, 0, 0], [1, 0, 0, 0, 1], [0, 0, 0, 0, 1]])]
+        mejorValor2=-999
+        mejorPos2=0
+        mejorValor = -999
+        mejorPos=0
+        for indice in range(len(valores[0])):
+            if(mejorValor<valores[0][indice]):
+                if(valores[0][indice])==1.0:
+                    mejorValor=valores[0][indice]
+                    mejorPos=indice
+                    break
+                mejorValor=valores[0][indice]
+                mejorPos=indice
+        for indice in range(len(valores[0])):
+            if(mejorValor2<valores[0][indice] and indice!=mejorPos):
+                if(valores[0][indice])==1.0:
+                    mejorValor2=valores[0][indice]
+                    mejorPos2=indice
+                    break
+                mejorValor2=valores[0][indice]
+                mejorPos2=indice
+
+
+        #Recuperamos el indice de la molecula mas apto
+        indice_padre = mejorPos
+
+        #Recuperamos el indice de la segunda molecula mas apto
+        indice_madre = mejorPos2
+
+        #Recuperamos el valor con el indice
+        padre = valores[1][indice_padre]
+        madre = valores[1][indice_madre]
+        
+        return padre, madre
     def evaluacion(self):
         self.evaluar=[(self.funcionObjetivo(valor),valor) for valor in self.poblacion if(self.funcionObjetivo(valor)<=1)]
                     #   (  FuncionObjetivo(valor),valor)
@@ -168,7 +174,7 @@ class claseGenetico():
         # Itearamos cada hijo
         while(len(hijos)<self.n):
             #Almacenamos las moleculas mas aptas en padre y madre
-            padre,madre=self.NuevaRuleta(self.evaluar)
+            padre,madre=self.AlgoritmoGreddy(self.evaluar)
 
             #Generamos un numero entre 0 y 1 con "radom()" y si es menor a la
             #probabilidad de cruce -> Cruzamos padre y madre
