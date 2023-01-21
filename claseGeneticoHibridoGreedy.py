@@ -4,6 +4,8 @@ from random import randint, random
 from claseCurso import *
 from claseDia import *
 
+#CLASE ALGORITMO GENETICO CON GREEDY
+
 class claseGeneticoHibridoGreedy():
     def __init__(self,_cursos,_aulas,_n,_listaCursos:list,_cantLaboratorios):
         self.probaMutacion=0.80
