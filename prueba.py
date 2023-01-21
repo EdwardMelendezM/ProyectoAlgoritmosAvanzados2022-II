@@ -106,7 +106,7 @@ listaCursos=[classCurso("MAT","matematica","Jose",[classDia("lunes",7,9),classDi
 cromosoma=[[0,1,0,0],[1,1,0,1],[1,1,0,1]]
 #print(ECT(cromosoma))
 
-print(generarAuxDocentes(listaCursos))
+#print(generarAuxDocentes(listaCursos))
 
 
 aula1=[(0,0),(0,1),(2,0),(2,1),(4,0),(1,0),(1,1),(2,0),(2,1),(0,2),(0,3),(2,2),(2,3)]
@@ -121,3 +121,10 @@ auxAula2={"MAT":0,"FIS":4,"BIO":0}
 
 if():
     pass
+import random
+test_list=[1,2,3,4,5,6,7,8,9,10]
+n=3
+output=[test_list[i:i + n] for i in range(0, len(test_list), n)]
+
+
+print(output)
