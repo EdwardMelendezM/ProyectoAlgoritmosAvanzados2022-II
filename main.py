@@ -1,6 +1,13 @@
 from claseGenetico import *
 import matplotlib.pyplot as plt
 
+#Paul
+# GENERAR LOS DATOS DE LOS DOCENTES Y HORARIOS EN UNA LISTA
+
+#Andy
+# EL TIEMPO DE EJECUCION DE LOS DOS ALGORITMOS
+
+
 #Cursos iniciales
 cursoNuevo = ClaseCurso("MAT",
                         "matematica",
@@ -22,9 +29,12 @@ cursoNuevo5 = ClaseCurso("ANAT",
                         "anatomia",
                         "Ana",
                         [ClaseDia("lunes",16,18),ClaseDia("miercoles",16,18),ClaseDia("viernes",16,15)])
+
+
+
 #Inicializamos la clase genetico
 totalCursos=[cursoNuevo,cursoNuevo2,cursoNuevo3,cursoNuevo4,cursoNuevo5]
-var = claseGenetico(_cursos=2,_aulas=2,_n=250,_listaCursos=totalCursos)
+var = claseGenetico(_cursos=5,_aulas=2,_n=250,_listaCursos=totalCursos)
 
 #Damos el valor para iterar las generaciones
 generaciones = 100
@@ -33,6 +43,7 @@ generaciones = 100
 var.generarPoblacion()
 aux=1
 
+#--------------------------------------------------------------
 #Empezamos con las iteraciones
 while aux<generaciones:
     #Entrenamos nuestra poblacion con cada iteracion
@@ -40,6 +51,7 @@ while aux<generaciones:
     if(var.puntuacion[-1]==1.0):
         break
     aux+=1
+#--------------------------------------------------------------
 
 # Ver datos
 y=var.obtenerPuntuacion()
