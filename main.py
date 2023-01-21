@@ -1,7 +1,10 @@
 from claseGenetico import *
 import matplotlib.pyplot as plt
 
+#Paul
 # GENERAR LOS DATOS DE LOS DOCENTES Y HORARIOS EN UNA LISTA
+
+#Andy
 # EL TIEMPO DE EJECUCION DE LOS DOS ALGORITMOS
 
 
