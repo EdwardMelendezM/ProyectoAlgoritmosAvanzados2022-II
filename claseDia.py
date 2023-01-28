@@ -1,5 +1,5 @@
 class ClaseDia:
-    def __init__(self,dia,horaI,horaF,tipo="teo"):
+    def __init__(self,dia,horaI,horaF,tipo="T"):
         self.dia=dia
         self.horaI=horaI
         self.horaF=horaF

@@ -4,5 +4,5 @@ class ClaseCurso:
         self.nombre=nombre
         self.docente=docente
         self.horario=horario
-        
-
+    def mostrar(self):
+        print(f'{self.codAsignatura} {self.nombre} {self.docente} {self.horario}')

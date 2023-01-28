@@ -13,23 +13,23 @@ import matplotlib.pyplot as plt
 cursoNuevo = ClaseCurso("MAT",
                         "matematica",
                         "Jacob",
-                        [ClaseDia("lunes",7,9,"teo"),ClaseDia("miercoles",7,9,"lab"),ClaseDia("viernes",7,8,"teo")])
+                        [ClaseDia("lunes",7,9,"T"),ClaseDia("miercoles",7,9,"P"),ClaseDia("viernes",7,8,"T")])
 cursoNuevo2 = ClaseCurso("FIS",
                         "fisica",
                         "Maria",
-                        [ClaseDia("martes",7,9,"teo"),ClaseDia("jueves",7,9,"lab"),ClaseDia("viernes",7,8,"teo")])
+                        [ClaseDia("martes",7,9,"T"),ClaseDia("jueves",7,9,"P"),ClaseDia("viernes",7,8,"T")])
 cursoNuevo3 = ClaseCurso("ALG",
                         "fisica",
                         "Juan",
-                        [ClaseDia("lunes",9,11,"teo"),ClaseDia("miercoles",9,11,"lab"),ClaseDia("viernes",8,9,"teo")])
+                        [ClaseDia("lunes",9,11,"T"),ClaseDia("miercoles",9,11,"P"),ClaseDia("viernes",8,9,"T")])
 cursoNuevo4 = ClaseCurso("BIO",
                         "fisica",
                         "Pilar",
-                        [ClaseDia("lunes",12,15,"teo"),ClaseDia("jueves",11,1,"lab"),ClaseDia("viernes",9,10,"teo")])
+                        [ClaseDia("lunes",12,15,"T"),ClaseDia("jueves",11,1,"P"),ClaseDia("viernes",9,10,"T")])
 cursoNuevo5 = ClaseCurso("ANAT",
                         "anatomia",
                         "Ana",
-                        [ClaseDia("lunes",16,18,"teo"),ClaseDia("miercoles",16,18,"lab"),ClaseDia("viernes",16,15,"teo")])
+                        [ClaseDia("lunes",16,18,"T"),ClaseDia("miercoles",16,18,"P"),ClaseDia("viernes",16,15,"T")])
 
 
 

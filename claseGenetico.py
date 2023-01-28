@@ -69,11 +69,11 @@ class claseGenetico():
     #[[1, 0, 1, 0, 1, 1, 1, 1, 0, 0], [1, 0, 1, 0, 0, 0, 0, 0, 1, 1], [1, 0, 0, 0, 1, 1, 1, 0, 1, 1]]
     def determinarHorariosLaboratorios(self,curso):
         aula=[]
-        dias={"lunes":0,"martes":1,"miercoles":2,"jueves":3,"viernes":4,"sabado":5}
+        dias={"LUNES":0,"MARTES":1,"MIÉRCOLES":2,"JUEVES":3,"VIERNES":4,"SÁBADO":5,"SABADO ":5}
         lab=[]
         for curso in curso.horario:
             for num in range(curso.horaI,curso.horaF):
-                if(curso.tipo=="lab"):
+                if(curso.tipo=="P"):
                     lab.append((dias[curso.dia],num))
                 else:
                     aula.append((dias[curso.dia],num))
