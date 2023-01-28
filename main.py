@@ -8,28 +8,28 @@ import matplotlib.pyplot as plt
 #Andy
 # EL TIEMPO DE EJECUCION DE LOS DOS ALGORITMOS
 
-
+#dias={"LUNES":0,"MARTES":1,"MIÉRCOLES":2,"JUEVES":3,"VIERNES":4,"SÁBADO":5,"SABADO ":5}
 #Cursos iniciales
 cursoNuevo = ClaseCurso("MAT",
                         "matematica",
                         "Jacob",
-                        [ClaseDia("lunes",7,9,"T"),ClaseDia("miercoles",7,9,"P"),ClaseDia("viernes",7,8,"T")])
+                        [ClaseDia("LUNES",7,9,"T"),ClaseDia("MIÉRCOLES",7,9,"P"),ClaseDia("VIERNES",7,8,"T")])
 cursoNuevo2 = ClaseCurso("FIS",
-                        "fisica",
+                        "fisica",   
                         "Maria",
-                        [ClaseDia("martes",7,9,"T"),ClaseDia("jueves",7,9,"P"),ClaseDia("viernes",7,8,"T")])
+                        [ClaseDia("MARTES",7,9,"T"),ClaseDia("JUEVES",7,9,"P"),ClaseDia("VIERNES",7,8,"T")])
 cursoNuevo3 = ClaseCurso("ALG",
                         "fisica",
                         "Juan",
-                        [ClaseDia("lunes",9,11,"T"),ClaseDia("miercoles",9,11,"P"),ClaseDia("viernes",8,9,"T")])
+                        [ClaseDia("LUNES",9,11,"T"),ClaseDia("MIÉRCOLES",9,11,"P"),ClaseDia("VIERNES",8,9,"T")])
 cursoNuevo4 = ClaseCurso("BIO",
                         "fisica",
                         "Pilar",
-                        [ClaseDia("lunes",12,15,"T"),ClaseDia("jueves",11,1,"P"),ClaseDia("viernes",9,10,"T")])
+                        [ClaseDia("LUNES",12,15,"T"),ClaseDia("JUEVES",11,1,"P"),ClaseDia("VIERNES",9,10,"T")])
 cursoNuevo5 = ClaseCurso("ANAT",
                         "anatomia",
                         "Ana",
-                        [ClaseDia("lunes",16,18,"T"),ClaseDia("miercoles",16,18,"P"),ClaseDia("viernes",16,15,"T")])
+                        [ClaseDia("LUNES",16,18,"T"),ClaseDia("MIÉRCOLES",16,18,"P"),ClaseDia("VIERNES",16,15,"T")])
 
 
 
